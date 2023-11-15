@@ -4,6 +4,7 @@ const { fetchData, parseData } = require("../utils/theater");
 const { fetchNewsData, parseNewsData } = require("../utils/news");
 const { fetchEventData, parseEventData } = require("../utils/schedule");
 const { fetchBirthdayData, parseBirthdayData } = require("../utils/birthday");
+const { fetchMemberData, parseMemberData, fetchMemberSocialMedia, parseMemberSocialMedia } = require("../utils/member");
 
 router.get("/schedule", async (req, res) => {
   try {
@@ -40,6 +41,23 @@ router.get("/birthdays", async (req, res) => {
     const htmlData = await fetchBirthdayData();
     const birthdayData = parseBirthdayData(htmlData);
     res.json(birthdayData);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+router.get("/member/:id", async (req, res) => {
+  const memberId = req.params.id;
+  try {
+    const memberHtmlData = await fetchMemberData(memberId);
+    const memberData = parseMemberData(memberHtmlData);
+
+    const socialMediaHtmlData = await fetchMemberSocialMedia(memberId);
+    const socialMediaData = parseMemberSocialMedia(socialMediaHtmlData);
+
+    const combinedData = { ...memberData, socialMedia: socialMediaData };
+
+    res.json(combinedData);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
