@@ -108,5 +108,3 @@ The API will be available at `http://localhost:3000`.
 Feel free to explore and integrate these endpoints into your applications! If you encounter any issues, please refer to the [troubleshooting](#troubleshooting) section or open an [issue](https://github.com/Synxx12/JKT48-Scrape/issues).
 
 ---
-
-Adjust the placeholders (e.g., "Your Schedule Data Here") based on the actual data structure and content of your API responses. This template provides a structure for introducing users to your API, explaining how to install and run it, and detailing each endpoint's purpose and usage.
