@@ -3,6 +3,7 @@ const router = express.Router();
 const { fetchData, parseData } = require("../utils/theater");
 const { fetchNewsData, parseNewsData } = require("../utils/news");
 const { fetchEventData, parseEventData } = require("../utils/schedule");
+const { fetchBirthdayData, parseBirthdayData } = require("../utils/birthday");
 
 router.get("/schedule", async (req, res) => {
   try {
@@ -23,6 +24,7 @@ router.get("/news", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 router.get("/events", async (req, res) => {
   try {
     const htmlData = await fetchEventData();
@@ -32,4 +34,15 @@ router.get("/events", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+router.get("/birthdays", async (req, res) => {
+  try {
+    const htmlData = await fetchBirthdayData();
+    const birthdayData = parseBirthdayData(htmlData);
+    res.json(birthdayData);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 module.exports = router;
