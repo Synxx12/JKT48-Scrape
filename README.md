@@ -43,7 +43,7 @@ The API will be available at `http://localhost:3000`.
 **Example**:
 
 ```bash
- http://localhost:3000/schedule
+ http://localhost:3000/api/schedule
 ```
 
 
@@ -58,7 +58,7 @@ The API will be available at `http://localhost:3000`.
 **Example**:
 
 ```bash
- http://localhost:3000/news
+ http://localhost:3000/api/news
 ```
 
 
@@ -73,7 +73,7 @@ The API will be available at `http://localhost:3000`.
 **Example**:
 
 ```bash
- http://localhost:3000/events
+ http://localhost:3000/api/events
 ```
 
 
