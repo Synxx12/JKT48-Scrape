@@ -77,7 +77,7 @@ The API will be available at `http://localhost:3000`.
 ```
 
 
-Feel free to explore and integrate these endpoints into your applications! If you encounter any issues, please refer to the [troubleshooting](#troubleshooting) section or open an [issue](https://twitter.com/messages/compose?recipient_id=1451788475909345286).
+Feel free to explore and integrate these endpoints into your applications! If you encounter any issues, please refer to the [troubleshooting](#troubleshooting) section or open an [issue](https://github.com/Synxx12/JKT48-Scrape/issues).
 
 ---
 
