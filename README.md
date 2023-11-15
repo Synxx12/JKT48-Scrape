@@ -2,7 +2,7 @@
 
 # Web Scrape JKT48 API
 
-Welcome to the Web Scrape JKT48 API! This API provides information about schedules, news, and events related to movie theaters.
+Welcome to the Web Scrape JKT48 API! This API provides information about schedules, news, and events related to theaters.
 
 ## Getting Started
 
