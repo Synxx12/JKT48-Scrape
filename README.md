@@ -77,6 +77,21 @@ The API will be available at `http://localhost:3000`.
 ```
 
 
+### `/birthdays`
+
+**Description**: Get birthdays data.
+
+**Endpoint**: `/birthdays`
+
+**Method**: `GET`
+
+**Example**:
+
+```bash
+ http://localhost:3000/api/birthdays
+```
+
+
 Feel free to explore and integrate these endpoints into your applications! If you encounter any issues, please refer to the [troubleshooting](#troubleshooting) section or open an [issue](https://github.com/Synxx12/JKT48-Scrape/issues).
 
 ---
