@@ -2,7 +2,7 @@
 
 # Web Scrape JKT48 API
 
-Welcome to the Web Scrape JKT48 API! This API provides information about schedules, news, and events related to movie theaters.
+Welcome to the Web Scrape JKT48 API! This API provides information about schedules, news, and events related to theaters.
 
 ## Getting Started
 
@@ -43,7 +43,7 @@ The API will be available at `http://localhost:3000`.
 **Example**:
 
 ```bash
- http://localhost:3000/schedule
+ http://localhost:3000/api/schedule
 ```
 
 
@@ -58,7 +58,7 @@ The API will be available at `http://localhost:3000`.
 **Example**:
 
 ```bash
- http://localhost:3000/news
+ http://localhost:3000/api/news
 ```
 
 
@@ -73,11 +73,11 @@ The API will be available at `http://localhost:3000`.
 **Example**:
 
 ```bash
- http://localhost:3000/events
+ http://localhost:3000/api/events
 ```
 
 
-Feel free to explore and integrate these endpoints into your applications! If you encounter any issues, please refer to the [troubleshooting](#troubleshooting) section or open an [issue](https://twitter.com/messages/compose?recipient_id=1451788475909345286).
+Feel free to explore and integrate these endpoints into your applications! If you encounter any issues, please refer to the [troubleshooting](#troubleshooting) section or open an [issue](https://github.com/Synxx12/JKT48-Scrape/issues).
 
 ---
 
