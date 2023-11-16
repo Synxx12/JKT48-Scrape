@@ -5,6 +5,7 @@ const { fetchNewsData, parseNewsData } = require("../utils/news");
 const { fetchEventData, parseEventData } = require("../utils/schedule");
 const { fetchBirthdayData, parseBirthdayData } = require("../utils/birthday");
 const { fetchMemberData, parseMemberData, fetchMemberSocialMedia, parseMemberSocialMedia } = require("../utils/member");
+const { fetchNewsSearchData, parseNewsSearchData } = require("../utils/news-search");
 
 router.get("/schedule", async (req, res) => {
   try {
@@ -60,6 +61,19 @@ router.get("/member/:id", async (req, res) => {
     res.json(combinedData);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+router.get("/news/:page", async (req, res) => {
+  const page = req.params.page || 1;
+
+  try {
+    const html = await fetchNewsSearchData(page);
+    const newsData = parseNewsSearchData(html);
+    res.status(200).json({ success: true, data: newsData });
+  } catch (error) {
+    console.error("Error fetching or parsing news data:", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
   }
 });
 
