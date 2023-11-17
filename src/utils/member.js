@@ -21,6 +21,10 @@ const parseMemberData = (html) => {
   memberData.height = $(".entry-mypage__item--content").eq(4).text().trim();
   memberData.nickname = $(".entry-mypage__item--content").eq(5).text().trim();
 
+  // Add profile image with full URL
+  const relativeProfileImagePath = $(".entry-mypage__profile img").attr("src");
+  memberData.profileImage = `https://jkt48.com${relativeProfileImagePath}`;
+
   return memberData;
 };
 
