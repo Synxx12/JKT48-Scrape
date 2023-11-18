@@ -90,6 +90,8 @@ The API will be available at `http://localhost:3000`.
 ```bash
  http://localhost:3000/api/birthdays
 ```
+
+
 ### `/member/:id`
 
 **Description**: Get member detail data.
@@ -103,6 +105,23 @@ The API will be available at `http://localhost:3000`.
 ```bash
  http://localhost:3000/api/member/:id
 ```
+
+
+### `/member`
+
+**Description**: Get member data.
+
+**Endpoint**: `/member`
+
+**Method**: `GET`
+
+**Example**:
+
+```bash
+ http://localhost:3000/api/member/
+```
+
+
 ### `/news/:page`
 
 **Description**: Get member detail data.
