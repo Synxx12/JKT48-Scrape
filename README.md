@@ -92,6 +92,36 @@ The API will be available at `http://localhost:3000`.
 ```
 
 
+### `/member`
+
+**Description**: Get member data.
+
+**Endpoint**: `/member`
+
+**Method**: `GET`
+
+**Example**:
+
+```bash
+ http://localhost:3000/api/member
+```
+
+
+### `/banners`
+
+**Description**: Get banners data.
+
+**Endpoint**: `/banners`
+
+**Method**: `GET`
+
+**Example**:
+
+```bash
+ http://localhost:3000/api/banners
+```
+
+
 ### `/member/:id`
 
 **Description**: Get member detail data.
@@ -104,21 +134,6 @@ The API will be available at `http://localhost:3000`.
 
 ```bash
  http://localhost:3000/api/member/:id
-```
-
-
-### `/member`
-
-**Description**: Get member data.
-
-**Endpoint**: `/member`
-
-**Method**: `GET`
-
-**Example**:
-
-```bash
- http://localhost:3000/api/member/
 ```
 
 
