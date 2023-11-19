@@ -16,7 +16,7 @@ const parseBannerData = (html) => {
   const $ = cheerio.load(html);
 
   const divMain = $("section");
-  const listSlidersMentah = divMain.find("a");
+  const listSlidersMentah = divMain.find(".hero-home a");
 
   const listSlider = [];
 
