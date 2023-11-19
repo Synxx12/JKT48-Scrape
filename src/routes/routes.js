@@ -2,13 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { fetchData, parseData } = require("../utils/theater");
 const { fetchNewsData, parseNewsData } = require("../utils/news");
-const { fetchEventData, parseEventData } = require("../utils/schedule");
+const { fetchSpecificData, parseSpecificData } = require("../utils/schedule");
 const { fetchBirthdayData, parseBirthdayData } = require("../utils/birthday");
 const { fetchMemberData, parseMemberData, fetchMemberSocialMedia, parseMemberSocialMedia } = require("../utils/memberid");
 const { fetchNewsSearchData, parseNewsSearchData } = require("../utils/news-search");
 const { fetchMemberDataCard, parseMemberDataCard } = require("../utils/member");
-
-// Import fungsi scrape banner
 const { fetchBannerData, parseBannerData } = require("../utils/banner");
 
 router.get("/schedule", async (req, res) => {
@@ -33,11 +31,12 @@ router.get("/news", async (req, res) => {
 
 router.get("/events", async (req, res) => {
   try {
-    const htmlData = await fetchEventData();
-    const eventData = parseEventData(htmlData);
-    res.json(eventData);
+    const htmlData = await fetchSpecificData();
+    const specificData = parseSpecificData(htmlData);
+    res.status(200).json({ success: true, data: specificData });
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
+    console.error("Error fetching or parsing specific data:", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
   }
 });
 
