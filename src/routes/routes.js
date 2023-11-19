@@ -8,6 +8,9 @@ const { fetchMemberData, parseMemberData, fetchMemberSocialMedia, parseMemberSoc
 const { fetchNewsSearchData, parseNewsSearchData } = require("../utils/news-search");
 const { fetchMemberDataCard, parseMemberDataCard } = require("../utils/member");
 
+// Import fungsi scrape banner
+const { fetchBannerData, parseBannerData } = require("../utils/banner");
+
 router.get("/schedule", async (req, res) => {
   try {
     const htmlData = await fetchData();
@@ -85,6 +88,18 @@ router.get("/member", async (req, res) => {
     res.json({ members });
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+// Rute untuk scraping data banner
+router.get("/banners", async (req, res) => {
+  try {
+    const html = await fetchBannerData("https://jkt48.com");
+    const banners = parseBannerData(html);
+    res.status(200).json({ success: true, data: banners });
+  } catch (error) {
+    console.error("Error fetching or parsing banner data:", error);
+    res.status(500).json({ success: false, error: "Internal Server Error" });
   }
 });
 
