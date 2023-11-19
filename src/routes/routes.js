@@ -4,9 +4,9 @@ const { fetchData, parseData } = require("../utils/theater");
 const { fetchNewsData, parseNewsData } = require("../utils/news");
 const { fetchSpecificData, parseSpecificData } = require("../utils/schedule");
 const { fetchBirthdayData, parseBirthdayData } = require("../utils/birthday");
-const { fetchMemberData, parseMemberData, fetchMemberSocialMedia, parseMemberSocialMedia } = require("../utils/memberid");
+const { fetchMemberDataId, parseMemberDataId, fetchMemberSocialMediaId, parseMemberSocialMediaId } = require("../utils/memberid");
 const { fetchNewsSearchData, parseNewsSearchData } = require("../utils/news-search");
-const { fetchMemberDataCard, parseMemberDataCard } = require("../utils/member");
+const { fetchMemberData, parseMemberData } = require("../utils/member");
 const { fetchBannerData, parseBannerData } = require("../utils/banner");
 
 router.get("/schedule", async (req, res) => {
@@ -53,11 +53,11 @@ router.get("/birthdays", async (req, res) => {
 router.get("/member/:id", async (req, res) => {
   const memberId = req.params.id;
   try {
-    const memberHtmlData = await fetchMemberData(memberId);
-    const memberData = parseMemberData(memberHtmlData);
+    const memberHtmlData = await fetchMemberDataId(memberId);
+    const memberData = parseMemberDataId(memberHtmlData);
 
-    const socialMediaHtmlData = await fetchMemberSocialMedia(memberId);
-    const socialMediaData = parseMemberSocialMedia(socialMediaHtmlData);
+    const socialMediaHtmlData = await fetchMemberSocialMediaId(memberId);
+    const socialMediaData = parseMemberSocialMediaId(socialMediaHtmlData);
 
     const combinedData = { ...memberData, socialMedia: socialMediaData };
 
@@ -82,8 +82,8 @@ router.get("/news/:page", async (req, res) => {
 
 router.get("/member", async (req, res) => {
   try {
-    const html = await fetchMemberDataCard();
-    const members = parseMemberDataCard(html);
+    const html = await fetchMemberData();
+    const members = parseMemberData(html);
     res.json({ members });
   } catch (error) {
     res.status(500).json({ error: error.message });

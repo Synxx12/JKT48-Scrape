@@ -1,7 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-const fetchMemberData = async (memberId) => {
+const fetchMemberDataId = async (memberId) => {
   try {
     const response = await axios.get(`https://jkt48.com/member/detail/id/${memberId}?lang=id`);
     return response.data;
@@ -10,7 +10,7 @@ const fetchMemberData = async (memberId) => {
   }
 };
 
-const parseMemberData = (html) => {
+const parseMemberDataId = (html) => {
   const $ = cheerio.load(html);
   const memberData = {};
 
@@ -28,7 +28,7 @@ const parseMemberData = (html) => {
   return memberData;
 };
 
-const fetchMemberSocialMedia = async (id) => {
+const fetchMemberSocialMediaId = async (id) => {
   try {
     const response = await axios.get(`https://jkt48.com/member/detail/id/${id}?lang=id`);
     return response.data;
@@ -37,7 +37,7 @@ const fetchMemberSocialMedia = async (id) => {
   }
 };
 
-const parseMemberSocialMedia = (html) => {
+const parseMemberSocialMediaId = (html) => {
   const $ = cheerio.load(html);
 
   const socialMedia = {
@@ -54,4 +54,4 @@ const parseMemberSocialMedia = (html) => {
   return socialMedia;
 };
 
-module.exports = { fetchMemberData, parseMemberData, fetchMemberSocialMedia, parseMemberSocialMedia };
+module.exports = { fetchMemberDataId, parseMemberDataId, fetchMemberSocialMediaId, parseMemberSocialMediaId };
