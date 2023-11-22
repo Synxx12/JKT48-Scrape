@@ -137,6 +137,21 @@ The API will be available at `http://localhost:3000`.
 ```
 
 
+### `/video`
+
+**Description**: Get video data.
+
+**Endpoint**: `/video`
+
+**Method**: `GET`
+
+**Example**:
+
+```bash
+ http://localhost:3000/api/video
+```
+
+
 ### `/member/:id`
 
 **Description**: Get member detail data.
