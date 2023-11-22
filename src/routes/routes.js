@@ -8,6 +8,7 @@ const { fetchMemberDataId, parseMemberDataId, fetchMemberSocialMediaId, parseMem
 const { fetchNewsSearchData, parseNewsSearchData } = require("../utils/news-search");
 const { fetchMemberData, parseMemberData } = require("../utils/member");
 const { fetchBannerData, parseBannerData } = require("../utils/banner");
+const { fetchScheduleSectionData, parseScheduleSectionData } = require("../utils/schedule-section");
 
 router.get("/schedule", async (req, res) => {
   try {
@@ -45,6 +46,16 @@ router.get("/birthdays", async (req, res) => {
     const htmlData = await fetchBirthdayData();
     const birthdayData = parseBirthdayData(htmlData);
     res.json(birthdayData);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+router.get("/schedule/section", async (req, res) => {
+  try {
+    const htmlData = await fetchScheduleSectionData();
+    const teaterData = parseScheduleSectionData(htmlData);
+    res.json(teaterData);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }

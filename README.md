@@ -122,6 +122,21 @@ The API will be available at `http://localhost:3000`.
 ```
 
 
+### `/schedule/section`
+
+**Description**: Get schedule section data.
+
+**Endpoint**: `/schedule/section`
+
+**Method**: `GET`
+
+**Example**:
+
+```bash
+ http://localhost:3000/api/schedule/section
+```
+
+
 ### `/member/:id`
 
 **Description**: Get member detail data.
