@@ -1,32 +1,12 @@
-const puppeteer = require("puppeteer");
+const axios = require("axios");
 const cheerio = require("cheerio");
 
 const fetchMemberData = async () => {
   const url = "https://jkt48.com/member/list?lang=id";
 
   try {
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: ["--proxy-server=http://190.6.23.218:999"],
-    });
-    const page = await browser.newPage();
-
-    // Emulate a non-headless browser to bypass Cloudflare
-    await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36");
-
-    const response = await page.goto(url, { waitUntil: "domcontentloaded" });
-
-    if (!response.ok()) {
-      throw new Error(`Failed to load page: ${response.status()}`);
-    }
-
-    // Add a delay to ensure all necessary JavaScript has loaded
-    await page.waitForTimeout(3000); // You can adjust the delay time as needed
-
-    const html = await page.content();
-    await browser.close();
-
-    return html;
+    const response = await axios.get(url);
+    return response.data;
   } catch (error) {
     throw new Error(`Error fetching data: ${error.message}`);
   }
